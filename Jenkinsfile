@@ -6,9 +6,9 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/charankumarreddy1/java-hello-world-with-maven.git']]])
             }
         }
-        stage('build'){
+        stage('installing'){
             steps{
-               bat 'mvn package'
+               sh 'mvn clean install'
             }
         }
     }
